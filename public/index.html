@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign in with Facebook</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>Facebook Login</h1>
+    <p class="sub">Server-side OAuth flow — no App Secret in the browser.</p>
+
+    <div id="alert" class="alert" hidden></div>
+
+    <section id="loggedOut">
+      <a class="fb-btn" href="/auth/facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20">
+          <path fill="currentColor" d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.5V12h2.5V9.8c0-2.5 1.5-3.9 3.7-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/>
+        </svg>
+        Continue with Facebook
+      </a>
+      <p class="hint">Requires a Facebook account and a role on the app while it's in Development mode.</p>
+    </section>
+
+    <section id="loggedIn" hidden>
+      <img id="avatar" class="avatar" alt="" />
+      <h2 id="userName"></h2>
+      <p class="email" id="userEmail"></p>
+      <p class="uid">User ID: <code id="userId"></code></p>
+      <button id="logout" class="ghost">Log out</button>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

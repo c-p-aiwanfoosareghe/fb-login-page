@@ -1,0 +1,42 @@
+:root {
+  --blue: #1877f2;
+  --blue-dark: #166fe0;
+  --ink: #1c1e21;
+  --muted: #65676b;
+  --line: #dddfe2;
+  --bg: #f0f2f5;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; display: grid; place-items: center;
+  background: var(--bg); color: var(--ink);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  padding: 24px;
+}
+.card {
+  width: 100%; max-width: 380px; background: #fff; border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.12); padding: 32px; text-align: center;
+}
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 19px; margin: 14px 0 2px; }
+.sub { color: var(--muted); font-size: 14px; margin: 0 0 24px; }
+.fb-btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: var(--blue); color: #fff; text-decoration: none; font-weight: 600;
+  padding: 12px 16px; border-radius: 6px; transition: background .15s;
+}
+.fb-btn:hover { background: var(--blue-dark); }
+.hint { color: var(--muted); font-size: 12px; margin: 14px 0 0; }
+.avatar { width: 72px; height: 72px; border-radius: 50%; border: 2px solid var(--line); }
+.email { color: var(--muted); margin: 0; font-size: 14px; }
+.uid { color: var(--muted); font-size: 12px; margin: 8px 0 20px; }
+.uid code { background: var(--bg); padding: 2px 6px; border-radius: 4px; }
+.ghost {
+  background: #fff; border: 1px solid var(--line); border-radius: 6px;
+  padding: 10px 18px; font: inherit; font-weight: 600; cursor: pointer;
+}
+.ghost:hover { background: var(--bg); }
+.alert {
+  background: #ffebe8; border: 1px solid #f5c2bd; color: #a11; border-radius: 6px;
+  padding: 10px 12px; font-size: 14px; margin-bottom: 18px; text-align: left;
+}

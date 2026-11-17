@@ -46,8 +46,8 @@ app.get("/auth/facebook", (req, res) => {
     scope: "public_profile,email",
   });
 
-  res.redirect(
-    `[facebook.com](https://www.facebook.com/${FB_API_VERSION}/dialog/oauth?${params})`
+    res.redirect(
+    `https://www.facebook.com/${FB_API_VERSION}/dialog/oauth?${params}`
   );
 });
 
@@ -72,9 +72,26 @@ app.get("/auth/facebook/callback", async (req, res) => {
       code,
     });
 
-    const tokenRes = await fetch(
-      `[graph.facebook.com](https://graph.facebook.com/${FB_API_VERSION}/oauth/access_token?${tokenParams})`
-    );
+    // Access token exchange
+const tokenRes = await fetch(
+  `https://graph.facebook.com/${FB_API_VERSION}/oauth/access_token?${tokenParams}`
+);
+
+// Long-lived token exchange
+const longRes = await fetch(
+  `https://graph.facebook.com/${FB_API_VERSION}/oauth/access_token?${longParams}`
+);
+
+// Debug token
+const debugRes = await fetch(
+  `https://graph.facebook.com/${FB_API_VERSION}/debug_token?${debugParams}`
+);
+
+// Fetch profile
+const profileRes = await fetch(
+  `https://graph.facebook.com/${FB_API_VERSION}/me?fields=id,name,email,picture&access_token=${accessToken}`
+);
+
     const tokenData = await tokenRes.json();
     if (!tokenRes.ok) throw new Error(tokenData.error?.message || "Token exchange failed");
 
